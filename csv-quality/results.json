@@ -1,0 +1,216 @@
+{
+  "report_type": "synthetic_engineering_csv_quality_demo",
+  "schema_version": "1.0",
+  "data_classification": "SYNTHETIC FIXTURES ONLY - NO CUSTOMER DATA",
+  "limitations": "Method demonstration only; no client delivery, business demand, financial or physical validation established.",
+  "status": "quality_findings",
+  "file_count": 2,
+  "records_checked": 5,
+  "finding_count": 9,
+  "rule_counts": {
+    "missing_required_columns": 1,
+    "blank_required_cells": 2,
+    "duplicate_record_id": 1,
+    "invalid_typed_values": 4,
+    "unexpected_columns": 1
+  },
+  "input_errors": [],
+  "files": [
+    {
+      "file_index": 1,
+      "file": "good.csv",
+      "records_seen": 2,
+      "records_checked": 2,
+      "columns": [
+        "record_id",
+        "observed_on",
+        "sensor_id",
+        "reading",
+        "unit",
+        "notes"
+      ]
+    },
+    {
+      "file_index": 2,
+      "file": "faulty.csv",
+      "records_seen": 3,
+      "records_checked": 3,
+      "columns": [
+        "record_id",
+        "observed_on",
+        "sensor_id",
+        "reading",
+        "notes",
+        "legacy_status"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "category": "missing_required_columns",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "message": "Required columns are absent.",
+      "columns": [
+        "unit"
+      ]
+    },
+    {
+      "category": "unexpected_columns",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "message": "Columns outside the documented schema.",
+      "columns": [
+        "legacy_status"
+      ]
+    },
+    {
+      "category": "invalid_typed_values",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 1,
+      "line_end": 2,
+      "message": "Expected exact YYYY-MM-DD calendar date; raw text retained.",
+      "column": "observed_on",
+      "value": "2026-02-30"
+    },
+    {
+      "category": "blank_required_cells",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 1,
+      "line_end": 2,
+      "message": "Required cell is empty or whitespace-only.",
+      "column": "sensor_id",
+      "value": ""
+    },
+    {
+      "category": "invalid_typed_values",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 1,
+      "line_end": 2,
+      "message": "Expected finite decimal literal; raw text retained.",
+      "column": "reading",
+      "value": "NaN"
+    },
+    {
+      "category": "duplicate_record_id",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 1,
+      "line_end": 2,
+      "message": "record_id was already seen in this batch.",
+      "column": "record_id",
+      "value": "0002",
+      "first_occurrence": {
+        "file_index": 1,
+        "file": "good.csv",
+        "record_number": 2,
+        "line_end": 4
+      }
+    },
+    {
+      "category": "invalid_typed_values",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 2,
+      "line_end": 3,
+      "message": "Expected finite decimal literal; raw text retained.",
+      "column": "reading",
+      "value": "12,3"
+    },
+    {
+      "category": "invalid_typed_values",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 3,
+      "line_end": 5,
+      "message": "Expected exact YYYY-MM-DD calendar date; raw text retained.",
+      "column": "observed_on",
+      "value": "20260112"
+    },
+    {
+      "category": "blank_required_cells",
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 3,
+      "line_end": 5,
+      "message": "Required cell is empty or whitespace-only.",
+      "column": "reading",
+      "value": ""
+    }
+  ],
+  "records": [
+    {
+      "file_index": 1,
+      "file": "good.csv",
+      "record_number": 1,
+      "line_end": 2,
+      "values": {
+        "record_id": "0001",
+        "observed_on": "2026-01-10",
+        "sensor_id": "SYNTHETIC-TEMP-01",
+        "reading": "23.50",
+        "unit": "degC",
+        "notes": "Synthetic fixture, no real sensor"
+      }
+    },
+    {
+      "file_index": 1,
+      "file": "good.csv",
+      "record_number": 2,
+      "line_end": 4,
+      "values": {
+        "record_id": "0002",
+        "observed_on": "2026-01-10",
+        "sensor_id": "SYNTHETIC-PRESS-01",
+        "reading": "1.02e2",
+        "unit": "kPa",
+        "notes": "Synthetic calibration note line 1\nline 2; <script>alert(\"synthetic\")</script> & text"
+      }
+    },
+    {
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 1,
+      "line_end": 2,
+      "values": {
+        "record_id": "0002",
+        "observed_on": "2026-02-30",
+        "sensor_id": "",
+        "reading": "NaN",
+        "notes": "Synthetic invalid date and reading",
+        "legacy_status": "obsolete"
+      }
+    },
+    {
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 2,
+      "line_end": 3,
+      "values": {
+        "record_id": "0003",
+        "observed_on": "2026-01-11",
+        "sensor_id": "SYNTHETIC-TEMP-02",
+        "reading": "12,3",
+        "notes": "Synthetic quoted comma, retained verbatim",
+        "legacy_status": "obsolete"
+      }
+    },
+    {
+      "file_index": 2,
+      "file": "faulty.csv",
+      "record_number": 3,
+      "line_end": 5,
+      "values": {
+        "record_id": "0004",
+        "observed_on": "20260112",
+        "sensor_id": "SYNTHETIC-TEMP-03",
+        "reading": "",
+        "notes": "Synthetic note line 1\nline 2; <b>not markup</b>",
+        "legacy_status": "obsolete"
+      }
+    }
+  ]
+}

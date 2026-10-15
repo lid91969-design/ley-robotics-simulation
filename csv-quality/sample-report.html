@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synthetic CSV quality report</title>
+<style>body{font:16px/1.55 system-ui,sans-serif;color:#193333;background:#f5f7f5;margin:0}
+main{max-width:1100px;margin:auto;padding:32px 20px 60px}h1{line-height:1.2}h2{margin-top:32px}
+.banner{background:#fff0ba;border:1px solid #b88d20;padding:16px}.card{background:white;padding:18px;border:1px solid #d2dfd8;margin:20px 0}
+table{border-collapse:collapse;width:100%;background:white}td,th{text-align:left;vertical-align:top;padding:12px;border:1px solid #d2dfd8}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.5 ui-monospace,monospace;margin:0}.scroll{overflow-x:auto}small{color:#47635c}</style>
+<main><p><a href="../index.html">ley project services</a> · <a href="README.md">Schema and reproduction</a> · <a href="csv_quality.py">Python source</a> · <a href="results.json">JSON findings</a></p><p><small>The tooling and report were prepared with AI assistance and verified against the included synthetic fixtures and focused tests. This public page adds navigation and disclosure to the generated report.</small></p><div class="banner"><b>SYNTHETIC DATA · METHOD DEMO</b><br>SYNTHETIC FIXTURES ONLY - NO CUSTOMER DATA</div>
+<h1>Engineering CSV quality report</h1><p>Method demonstration only; no client delivery, business demand, financial or physical validation established.</p>
+<div class="card"><b>Status: quality_findings</b><br>2 input files · 5 records checked · 9 quality findings · 0 input errors</div>
+<p>Five documented rules. No automatic correction, unit conversion, imputation or numeric coercion. All cell values below remain strings. A pass covers these checks only.</p>
+<h2>Rule counts</h2><div class="scroll"><table><tr><th>Category</th><th>Findings</th></tr><tr><td>missing_required_columns</td><td>1</td></tr><tr><td>blank_required_cells</td><td>2</td></tr><tr><td>duplicate_record_id</td><td>1</td></tr><tr><td>invalid_typed_values</td><td>4</td></tr><tr><td>unexpected_columns</td><td>1</td></tr></table></div>
+<h2>Input errors</h2><p>None.</p>
+<h2>Findings</h2><div class="scroll"><table><tr><th>Category</th><th>Location</th><th>Evidence</th></tr><tr><td>missing_required_columns</td><td>faulty.csv / file 2 / record header</td><td><pre>{
+  &quot;category&quot;: &quot;missing_required_columns&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;message&quot;: &quot;Required columns are absent.&quot;,
+  &quot;columns&quot;: [
+    &quot;unit&quot;
+  ]
+}</pre></td></tr><tr><td>unexpected_columns</td><td>faulty.csv / file 2 / record header</td><td><pre>{
+  &quot;category&quot;: &quot;unexpected_columns&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;message&quot;: &quot;Columns outside the documented schema.&quot;,
+  &quot;columns&quot;: [
+    &quot;legacy_status&quot;
+  ]
+}</pre></td></tr><tr><td>invalid_typed_values</td><td>faulty.csv / file 2 / record 1</td><td><pre>{
+  &quot;category&quot;: &quot;invalid_typed_values&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 1,
+  &quot;line_end&quot;: 2,
+  &quot;message&quot;: &quot;Expected exact YYYY-MM-DD calendar date; raw text retained.&quot;,
+  &quot;column&quot;: &quot;observed_on&quot;,
+  &quot;value&quot;: &quot;2026-02-30&quot;
+}</pre></td></tr><tr><td>blank_required_cells</td><td>faulty.csv / file 2 / record 1</td><td><pre>{
+  &quot;category&quot;: &quot;blank_required_cells&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 1,
+  &quot;line_end&quot;: 2,
+  &quot;message&quot;: &quot;Required cell is empty or whitespace-only.&quot;,
+  &quot;column&quot;: &quot;sensor_id&quot;,
+  &quot;value&quot;: &quot;&quot;
+}</pre></td></tr><tr><td>invalid_typed_values</td><td>faulty.csv / file 2 / record 1</td><td><pre>{
+  &quot;category&quot;: &quot;invalid_typed_values&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 1,
+  &quot;line_end&quot;: 2,
+  &quot;message&quot;: &quot;Expected finite decimal literal; raw text retained.&quot;,
+  &quot;column&quot;: &quot;reading&quot;,
+  &quot;value&quot;: &quot;NaN&quot;
+}</pre></td></tr><tr><td>duplicate_record_id</td><td>faulty.csv / file 2 / record 1</td><td><pre>{
+  &quot;category&quot;: &quot;duplicate_record_id&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 1,
+  &quot;line_end&quot;: 2,
+  &quot;message&quot;: &quot;record_id was already seen in this batch.&quot;,
+  &quot;column&quot;: &quot;record_id&quot;,
+  &quot;value&quot;: &quot;0002&quot;,
+  &quot;first_occurrence&quot;: {
+    &quot;file_index&quot;: 1,
+    &quot;file&quot;: &quot;good.csv&quot;,
+    &quot;record_number&quot;: 2,
+    &quot;line_end&quot;: 4
+  }
+}</pre></td></tr><tr><td>invalid_typed_values</td><td>faulty.csv / file 2 / record 2</td><td><pre>{
+  &quot;category&quot;: &quot;invalid_typed_values&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 2,
+  &quot;line_end&quot;: 3,
+  &quot;message&quot;: &quot;Expected finite decimal literal; raw text retained.&quot;,
+  &quot;column&quot;: &quot;reading&quot;,
+  &quot;value&quot;: &quot;12,3&quot;
+}</pre></td></tr><tr><td>invalid_typed_values</td><td>faulty.csv / file 2 / record 3</td><td><pre>{
+  &quot;category&quot;: &quot;invalid_typed_values&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 3,
+  &quot;line_end&quot;: 5,
+  &quot;message&quot;: &quot;Expected exact YYYY-MM-DD calendar date; raw text retained.&quot;,
+  &quot;column&quot;: &quot;observed_on&quot;,
+  &quot;value&quot;: &quot;20260112&quot;
+}</pre></td></tr><tr><td>blank_required_cells</td><td>faulty.csv / file 2 / record 3</td><td><pre>{
+  &quot;category&quot;: &quot;blank_required_cells&quot;,
+  &quot;file_index&quot;: 2,
+  &quot;file&quot;: &quot;faulty.csv&quot;,
+  &quot;record_number&quot;: 3,
+  &quot;line_end&quot;: 5,
+  &quot;message&quot;: &quot;Required cell is empty or whitespace-only.&quot;,
+  &quot;column&quot;: &quot;reading&quot;,
+  &quot;value&quot;: &quot;&quot;
+}</pre></td></tr></table></div>
+<h2>Raw parsed records</h2><p>Record numbers count CSV records after the header; ending lines count physical lines, including quoted newlines. Header defects are reported once per file. File numbers disambiguate repeated basenames.</p>
+<div class="scroll"><table><tr><th>Location</th><th>Unmodified cell strings</th></tr><tr><td>good.csv / file 1 / record 1 / ending line 2</td><td><pre>{
+  &quot;record_id&quot;: &quot;0001&quot;,
+  &quot;observed_on&quot;: &quot;2026-01-10&quot;,
+  &quot;sensor_id&quot;: &quot;SYNTHETIC-TEMP-01&quot;,
+  &quot;reading&quot;: &quot;23.50&quot;,
+  &quot;unit&quot;: &quot;degC&quot;,
+  &quot;notes&quot;: &quot;Synthetic fixture, no real sensor&quot;
+}</pre></td></tr><tr><td>good.csv / file 1 / record 2 / ending line 4</td><td><pre>{
+  &quot;record_id&quot;: &quot;0002&quot;,
+  &quot;observed_on&quot;: &quot;2026-01-10&quot;,
+  &quot;sensor_id&quot;: &quot;SYNTHETIC-PRESS-01&quot;,
+  &quot;reading&quot;: &quot;1.02e2&quot;,
+  &quot;unit&quot;: &quot;kPa&quot;,
+  &quot;notes&quot;: &quot;Synthetic calibration note line 1\nline 2; &lt;script&gt;alert(\&quot;synthetic\&quot;)&lt;/script&gt; &amp; text&quot;
+}</pre></td></tr><tr><td>faulty.csv / file 2 / record 1 / ending line 2</td><td><pre>{
+  &quot;record_id&quot;: &quot;0002&quot;,
+  &quot;observed_on&quot;: &quot;2026-02-30&quot;,
+  &quot;sensor_id&quot;: &quot;&quot;,
+  &quot;reading&quot;: &quot;NaN&quot;,
+  &quot;notes&quot;: &quot;Synthetic invalid date and reading&quot;,
+  &quot;legacy_status&quot;: &quot;obsolete&quot;
+}</pre></td></tr><tr><td>faulty.csv / file 2 / record 2 / ending line 3</td><td><pre>{
+  &quot;record_id&quot;: &quot;0003&quot;,
+  &quot;observed_on&quot;: &quot;2026-01-11&quot;,
+  &quot;sensor_id&quot;: &quot;SYNTHETIC-TEMP-02&quot;,
+  &quot;reading&quot;: &quot;12,3&quot;,
+  &quot;notes&quot;: &quot;Synthetic quoted comma, retained verbatim&quot;,
+  &quot;legacy_status&quot;: &quot;obsolete&quot;
+}</pre></td></tr><tr><td>faulty.csv / file 2 / record 3 / ending line 5</td><td><pre>{
+  &quot;record_id&quot;: &quot;0004&quot;,
+  &quot;observed_on&quot;: &quot;20260112&quot;,
+  &quot;sensor_id&quot;: &quot;SYNTHETIC-TEMP-03&quot;,
+  &quot;reading&quot;: &quot;&quot;,
+  &quot;notes&quot;: &quot;Synthetic note line 1\nline 2; &lt;b&gt;not markup&lt;/b&gt;&quot;,
+  &quot;legacy_status&quot;: &quot;obsolete&quot;
+}</pre></td></tr></table></div>
+<p><small>Standalone report; no external scripts, fonts, analytics or network requests.</small></p></main></html>
