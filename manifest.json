@@ -1,9 +1,44 @@
 {
   "files": [
     {
+      "path": "csv-quality/csv_quality.py",
+      "bytes": 11103,
+      "sha256": "623bc64ad640155ec46339b4aaca441bb47e2b8035ffa40d511e03d48cb87286"
+    },
+    {
+      "path": "csv-quality/fixtures/faulty.csv",
+      "bytes": 311,
+      "sha256": "556dc427bb8c0a8a430c56fab0e02a42712c284d2735a568da79fe401eb2c261"
+    },
+    {
+      "path": "csv-quality/fixtures/good.csv",
+      "bytes": 267,
+      "sha256": "82c25a42309a305c6fd2e2df289489a01210ffcea5b44161986131813a96aaae"
+    },
+    {
+      "path": "csv-quality/README.md",
+      "bytes": 5180,
+      "sha256": "16ae10fcd261f1662102791954459d3f2e548e68fb2fff0c37f2e81eb5863663"
+    },
+    {
+      "path": "csv-quality/results.json",
+      "bytes": 5697,
+      "sha256": "2b2f25a555a69e8376f71633a9c598b80df02e992c8d748f6ff4a7ce1f0ef23a"
+    },
+    {
+      "path": "csv-quality/sample-report.html",
+      "bytes": 9021,
+      "sha256": "5dca8fb294a757872496e4ac7039fec12ee4d25b268a53804fa348673ffe6607"
+    },
+    {
+      "path": "csv-quality/test_csv_quality.py",
+      "bytes": 4701,
+      "sha256": "b2142f48944070d73c570f7c404e528a0cee677bc6eac7ef50fe982212c50141"
+    },
+    {
       "path": "index.html",
-      "bytes": 3628,
-      "sha256": "716b677c4d0b5b9cc7d61d22851ac0cfe6b8f8771df4d2c813b22ffa86ca479f"
+      "bytes": 5144,
+      "sha256": "9d26f652d775bfd41081d0b497046195b5f85390288fee29b2b2783d3375d6db"
     },
     {
       "path": "media/public-g1-15s.webm",
@@ -22,13 +57,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 1356,
-      "sha256": "27c82296ce9b6d1d512df4e299271e6dc7ebeb584dc8e1b21535186d5f654837"
+      "bytes": 2621,
+      "sha256": "836123fbe275e617ecbd37df3719cff478e2fad2a148e93a07ddc047bcc4433f"
     },
     {
       "path": "sample-report.html",
-      "bytes": 4369,
-      "sha256": "ba7a53bde68c09b2e06e86945ef535b59a495161265dec0e1473a9275644a2a1"
+      "bytes": 4445,
+      "sha256": "e737432b8514b0b3694f3108475a18233741b24cfb1c5ff6c6f5a3e5c9d04b81"
     },
     {
       "path": "style.css",
@@ -46,5 +81,5 @@
       "sha256": "086db6105a0c96864906e47171655e04104f5441e24fb3b9eea6b2fd0516b751"
     }
   ],
-  "source_policy": "Public Unitree upstream assets only; no customer assets"
+  "source_policy": "Reviewed Unitree public assets and synthetic CSV fixtures only; no customer assets"
 }
