@@ -1,0 +1,4 @@
+record_id,observed_on,sensor_id,reading,unit,notes
+0001,2026-01-10,SYNTHETIC-TEMP-01,23.50,degC,"Synthetic fixture, no real sensor"
+0002,2026-01-10,SYNTHETIC-PRESS-01,1.02e2,kPa,"Synthetic calibration note line 1
+line 2; <script>alert(""synthetic"")</script> & text"
