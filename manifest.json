@@ -27,8 +27,8 @@
     },
     {
       "path": "csv-quality/sample-report.html",
-      "bytes": 9021,
-      "sha256": "5dca8fb294a757872496e4ac7039fec12ee4d25b268a53804fa348673ffe6607"
+      "bytes": 8974,
+      "sha256": "a0fa8fc7a76a341ae0df09d49dc8458268d77a09f0f04b6cab88db69ac3d35b7"
     },
     {
       "path": "csv-quality/test_csv_quality.py",
@@ -37,8 +37,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5144,
-      "sha256": "9d26f652d775bfd41081d0b497046195b5f85390288fee29b2b2783d3375d6db"
+      "bytes": 5112,
+      "sha256": "149bcaf767dc2f1fd2319fb30c43006efcf7c2d8a39179a6fbff92b455664629"
     },
     {
       "path": "media/public-g1-15s.webm",
@@ -57,13 +57,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 2621,
-      "sha256": "836123fbe275e617ecbd37df3719cff478e2fad2a148e93a07ddc047bcc4433f"
+      "bytes": 2557,
+      "sha256": "896f0260db1c036fb44865a412d9ac800aaa7e835c7ee1a21e07b6b1bc05fb4e"
     },
     {
       "path": "sample-report.html",
-      "bytes": 4445,
-      "sha256": "e737432b8514b0b3694f3108475a18233741b24cfb1c5ff6c6f5a3e5c9d04b81"
+      "bytes": 4413,
+      "sha256": "1622680130fbc501b27f99615da822368a550f7e23d7b0c2d633096f0509172a"
     },
     {
       "path": "style.css",
