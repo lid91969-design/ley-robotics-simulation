@@ -1,0 +1,5 @@
+record_id,observed_on,sensor_id,reading,notes,legacy_status
+0002,2026-02-30,,NaN,Synthetic invalid date and reading,obsolete
+0003,2026-01-11,SYNTHETIC-TEMP-02,"12,3","Synthetic quoted comma, retained verbatim",obsolete
+0004,20260112,SYNTHETIC-TEMP-03,,"Synthetic note line 1
+line 2; <b>not markup</b>",obsolete
