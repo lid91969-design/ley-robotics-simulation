@@ -1,0 +1,68 @@
+[
+  {
+    "requested_forward_m_s": 0,
+    "requested_duration_s": 30,
+    "duration_s": 30.0,
+    "fell": false,
+    "survived_full_horizon": true,
+    "final_xyz": [
+      0.3253166319297898,
+      -0.6311285720840878,
+      0.7756385985210745
+    ],
+    "mean_body_forward_m_s": 0.013848630038342113,
+    "forward_rmse_m_s": 0.017068631345599307,
+    "lateral_rms_m_s": 0.07728980501653683,
+    "failure_rule": "base z <0.4 m or upright cosine <0.5 or nonfinite state",
+    "limitations": [
+      "One deterministic default initial state; no perturbations",
+      "Upstream policy and robot; not trained here",
+      "No physical robot validation",
+      "Velocity statistics exclude the first 2 seconds; survival is not task success"
+    ]
+  },
+  {
+    "requested_forward_m_s": 0.2,
+    "requested_duration_s": 30,
+    "duration_s": 30.0,
+    "fell": false,
+    "survived_full_horizon": true,
+    "final_xyz": [
+      5.817306366083067,
+      -1.3854859476079526,
+      0.7720192231057756
+    ],
+    "mean_body_forward_m_s": 0.20135123918836023,
+    "forward_rmse_m_s": 0.016708368176712465,
+    "lateral_rms_m_s": 0.0755436626355022,
+    "failure_rule": "base z <0.4 m or upright cosine <0.5 or nonfinite state",
+    "limitations": [
+      "One deterministic default initial state; no perturbations",
+      "Upstream policy and robot; not trained here",
+      "No physical robot validation",
+      "Velocity statistics exclude the first 2 seconds; survival is not task success"
+    ]
+  },
+  {
+    "requested_forward_m_s": 0.5,
+    "requested_duration_s": 30,
+    "duration_s": 30.0,
+    "fell": false,
+    "survived_full_horizon": true,
+    "final_xyz": [
+      13.691651996935189,
+      -3.028887298505381,
+      0.7679314284105859
+    ],
+    "mean_body_forward_m_s": 0.476537390616523,
+    "forward_rmse_m_s": 0.034016570395073414,
+    "lateral_rms_m_s": 0.06531290151680547,
+    "failure_rule": "base z <0.4 m or upright cosine <0.5 or nonfinite state",
+    "limitations": [
+      "One deterministic default initial state; no perturbations",
+      "Upstream policy and robot; not trained here",
+      "No physical robot validation",
+      "Velocity statistics exclude the first 2 seconds; survival is not task success"
+    ]
+  }
+]

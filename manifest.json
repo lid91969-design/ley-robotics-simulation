@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 3628,
+      "sha256": "716b677c4d0b5b9cc7d61d22851ac0cfe6b8f8771df4d2c813b22ffa86ca479f"
+    },
+    {
+      "path": "media/public-g1-15s.webm",
+      "bytes": 20438884,
+      "sha256": "fa2dd2fad4fe33ce9fce113cb6bee749cb35497b83a1586c83dde3d6775831ff"
+    },
+    {
+      "path": "media/public-g1-poster.jpg",
+      "bytes": 108543,
+      "sha256": "a09d1a15350fca4fc3b0d3c08d9005dc5ab36fd0bc13e909e37274406ac5de28"
+    },
+    {
+      "path": "public-results.json",
+      "bytes": 2304,
+      "sha256": "af054657ddb4962e375085bfbd04fce5b1faef056b08633329e1367f50919c37"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1356,
+      "sha256": "27c82296ce9b6d1d512df4e299271e6dc7ebeb584dc8e1b21535186d5f654837"
+    },
+    {
+      "path": "sample-report.html",
+      "bytes": 4369,
+      "sha256": "ba7a53bde68c09b2e06e86945ef535b59a495161265dec0e1473a9275644a2a1"
+    },
+    {
+      "path": "style.css",
+      "bytes": 2235,
+      "sha256": "c7ac42d7157b4f1625048dfe1765bb271bebd0429d9011fa1a3aae5935fa99df"
+    },
+    {
+      "path": "Unitree-G1-Policy-Evaluation-Sample.pdf",
+      "bytes": 141420,
+      "sha256": "575454d5db4de7f3ce42c5335a15b7ed4bcbdf7ca6a62779d64bfe338c4f99ab"
+    },
+    {
+      "path": "UNITREE-LICENSE.txt",
+      "bytes": 1584,
+      "sha256": "086db6105a0c96864906e47171655e04104f5441e24fb3b9eea6b2fd0516b751"
+    }
+  ],
+  "source_policy": "Public Unitree upstream assets only; no customer assets"
+}
