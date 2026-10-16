@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A reproducible Unitree G1 simulation measurement: a no-fall run is not the same as holding position. Scoped motion-policy testing and engineering handoffs by ley.">
+  <title>ley — motion policy reproduction &amp; verification</title>
+  <style>
+    :root{--ink:#142b2a;--muted:#526663;--paper:#f6f7f2;--line:#d6dfd5;--accent:#195947;--soft:#e4ede2;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1120px;padding:0 32px;margin:auto}a{color:var(--accent);text-underline-offset:4px}nav{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);font-size:14px}nav b{font-size:19px;letter-spacing:-.4px}nav span{color:var(--muted)}section{padding:54px 0}.eyebrow{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(38px,5.8vw,68px);line-height:1.06;letter-spacing:-2.5px;max-width:900px;margin:18px 0 24px}h2{font-size:29px;line-height:1.2;letter-spacing:-.8px;margin:0 0 18px}h3{font-size:20px;line-height:1.35;margin:0 0 10px}p{margin:0 0 16px}.lead{font-size:21px;line-height:1.5;max-width:830px;color:var(--muted)}.small{font-size:14px;color:var(--muted)}.pill{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:100px;font-size:12px;margin:2px 5px 2px 0}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}.metric{background:var(--white);padding:24px}.metric strong{display:block;font-size:43px;line-height:1.1;letter-spacing:-1px;margin:6px 0 12px}.metric span{font-size:14px;color:var(--muted)}.two{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:start}.panel{border:1px solid var(--line);background:var(--white);padding:28px}.soft{background:var(--soft)}.rule{border-top:1px solid var(--line)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.stepno{display:block;color:var(--accent);font:700 13px/1.4 system-ui;letter-spacing:1px;margin-bottom:16px}.button{display:inline-block;background:var(--accent);color:#fff;padding:12px 20px;border-radius:4px;text-decoration:none;font-weight:650;font-size:15px;margin:5px 0}.links{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}video{display:block;width:100%;height:auto;background:#172824;border-radius:3px;margin:18px 0 14px}table{border-collapse:collapse;width:100%;font-size:15px;margin:18px 0}th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 10px}th{font-size:12px;text-transform:uppercase;color:var(--muted);font-weight:650}.overflow{overflow-x:auto}code{font-size:13px;word-break:break-all}.callout{border-left:3px solid var(--accent);padding-left:18px;margin:22px 0}footer{border-top:1px solid var(--line);padding:26px 0 38px;font-size:13px;color:var(--muted)}.contact{background:var(--ink);color:#fff;padding:36px}.contact p{color:#d9e4de}.contact .button{background:#cee5c7;color:var(--ink)}.contact .eyebrow{color:#cee5c7}
+    @media(max-width:720px){main{padding:0 20px}nav{display:block}nav span{display:block;margin-top:8px}section{padding:36px 0}h1{letter-spacing:-1.6px}.two,.steps{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.metric{padding:20px}.metric strong{font-size:37px}.panel,.contact{padding:22px}}
+  </style>
+</head>
+<body>
+<main>
+  <nav><b>ley / ROBOTICS ENGINEERING</b><span>Independent developer · Project cooperation</span></nav>
+  <section>
+    <div class="eyebrow">Motion policy reproduction &amp; verification</div>
+    <h1>A 30-second run stayed upright.<br>It did not stay in place.</h1>
+    <p class="lead">In one fixed MuJoCo configuration, a Unitree G1 pretrained locomotion policy received zero motion command, passed our no-fall rule, and ended 0.71 m from its starting position.</p>
+    <p class="lead">A useful handoff needs the behavior measured against the requirement—not just a successful-looking video.</p>
+    <p><span class="pill">Public upstream assets</span><span class="pill">Local simulation measurement</span><span class="pill">Reproduction checked</span></p>
+    <div class="metrics" aria-label="Zero-command case measurements">
+      <div class="metric"><span>Simulation horizon</span><strong>30 s</strong><span>No fall under the stated thresholds</span></div>
+      <div class="metric"><span>World-Y displacement</span><strong>−0.631 m</strong><span>Start y = 0; final y = −0.631129 m</span></div>
+      <div class="metric"><span>Horizontal displacement</span><strong>0.710 m</strong><span>Full run; start x = y = 0</span></div>
+    </div>
+    <p class="small" style="margin-top:16px">This is one deterministic run in one configuration, not a general finding about G1, a recipient's robot, or an upstream defect. Zero command here is an input to a locomotion policy; no separate standing controller was evaluated.</p>
+  </section>
+  <section class="rule two">
+    <article>
+      <div class="eyebrow">The engineering question</div>
+      <h2>What does “works” mean<br>at the next handoff?</h2>
+      <p>If a team's requirement is to hold position, remaining upright is only one check. The next step is to agree a position tolerance, initial conditions and a repeatable test.</p>
+      <div class="callout"><b>Our contribution:</b> a headless adaptation of the upstream deployment path, a fixed simulation-time horizon, command selection, body-frame measurements, JSON evidence and a readable findings report.</div>
+      <p>For this example, the robot model and pretrained policy are from <a href="https://github.com/unitreerobotics/unitree_rl_gym">Unitree RL GYM</a>. ley did not train or repair the policy. The contribution demonstrated here is reproduction and measurement.</p>
+      <div class="links"><a href="https://lid91969-design.github.io/ley-robotics-simulation/sample-report.html">Full measured sample</a><a href="https://lid91969-design.github.io/ley-robotics-simulation/public-results.json">Measured JSON</a><a href="https://lid91969-design.github.io/ley-robotics-simulation/UNITREE-LICENSE.txt">Attribution &amp; license</a></div>
+    </article>
+    <article class="panel">
+      <h3>Watch the separate motion sample</h3>
+      <video controls preload="metadata" poster="https://lid91969-design.github.io/ley-robotics-simulation/media/public-g1-poster.jpg" src="https://lid91969-design.github.io/ley-robotics-simulation/media/public-g1-15s.webm"></video>
+      <p class="small">Continuous 15-second recording at a 0.5 m/s forward command, at recorded speed. This is a separate run; it does not depict the zero-command case above.</p>
+      <p class="small">The full report records all three 30-second cases, the fall rule, configuration and remaining unknowns.</p>
+    </article>
+  </section>
+  <section class="rule">
+    <div class="eyebrow">One bounded task, a usable handoff</div>
+    <h2>Turn an existing simulation into an agreed check.</h2>
+    <div class="steps">
+      <article class="panel"><span class="stepno">01 / REVIEW INPUTS</span><h3>Choose one question</h3><p>Start with the robot and simulator versions, existing policy interface, a short behavior description and the result your team needs to verify.</p><p class="small">Suitability comes before a quote. Fixes, new training and physical deployment are scoped separately.</p></article>
+      <article class="panel"><span class="stepno">02 / DEFINE THE CHECK</span><h3>Agree what passes</h3><p>Set the initial state, command, duration, observable metric, tolerance and stop rule. Freeze the relevant inputs and versions.</p><p class="small">The first paid milestone can be one agreed test rather than a broad investigation.</p></article>
+      <article class="panel"><span class="stepno">03 / HAND OVER</span><h3>Make the result inspectable</h3><p>For the agreed scope: a runnable check, reproduction instructions, machine-readable findings and a concise report with evidence and remaining uncertainty.</p><p class="small">Your team can inspect the result and decide whether further work is worthwhile.</p></article>
+    </div>
+  </section>
+  <section class="rule two">
+    <article>
+      <h2>What this example establishes</h2>
+      <p>Three fixed 30-second cases were measured at commands of 0.0, 0.2 and 0.5 m/s. The portable review pack reproduced the saved summaries exactly in its recorded verification run.</p>
+      <div class="overflow"><table><thead><tr><th>Command</th><th>Mean body-forward speed</th><th>Lateral RMS</th></tr></thead><tbody><tr><td>0.0 m/s</td><td>0.014 m/s</td><td>0.077 m/s</td></tr><tr><td>0.2 m/s</td><td>0.201 m/s</td><td>0.076 m/s</td></tr><tr><td>0.5 m/s</td><td>0.477 m/s</td><td>0.065 m/s</td></tr></tbody></table></div>
+      <p class="small">Velocity statistics exclude the first 2 seconds; displacement uses the full 30-second run. Lateral RMS is a body-frame velocity statistic, not the world-Y displacement above.</p>
+    </article>
+    <article class="panel soft">
+      <h3>Test conditions and limits</h3>
+      <p class="small">Upstream commit <code>276801e46c5d433564f24658bac64f254b7d2d4b</code>. MuJoCo 3.11.0 · PyTorch 2.13.0+cpu · 0.002 s physics step · 0.020 s control period.</p>
+      <p class="small">No-fall rule: base height remains at least 0.4 m, upright cosine remains at least 0.5, and state remains finite.</p>
+      <p class="small">One default initial state per case; no perturbations. No physical robot validation, population success rate, root-cause finding or improvement is established. No client engagement or Unitree endorsement is implied.</p>
+    </article>
+  </section>
+  <section>
+    <div class="contact">
+      <div class="eyebrow">Start with a scope check</div>
+      <h2>Is there one simulation behavior<br>your team needs to verify?</h2>
+      <p>Send the robot and simulator versions, a short description or authorized clip, and the intended acceptance result. I'll review the inputs before proposing a paid project or subcontract, scope, fee and schedule.</p>
+      <a class="button" href="mailto:yaoqia2678@163.com?subject=One%20simulation%20check%20-%20project%20cooperation&amp;body=Robot%20and%20simulator%20versions%3A%0A%0ABehavior%20to%20check%3A%0A%0AExpected%20acceptance%20result%3A%0A%0ABudget%20range%20and%20target%20date%20%28if%20known%29%3A">Discuss one simulation check</a>
+      <p class="small" style="color:#d9e4de;margin:14px 0 0">Please keep credentials, complete private repositories and customer weights out of the initial message.</p>
+    </div>
+  </section>
+  <footer>ley · Independent developer · <a href="mailto:yaoqia2678@163.com">yaoqia2678@163.com</a><br>Unitree robot and policy attribution retained. This sample demonstrates measured reproduction of public assets, not policy training or a customer case.</footer>
+</main>
+</body>
+</html>
